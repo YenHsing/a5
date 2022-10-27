@@ -96,6 +96,7 @@ public class TranspositionTable<GameState> {
     TranspositionTable() {
         size = 0;
         // TODO 2
+        buckets = new Node[0];
     }
 
     /** The number of entries in the transposition table. */
@@ -110,6 +111,7 @@ public class TranspositionTable<GameState> {
      */
     public Maybe<StateInfo> getInfo(GameState state) {
         // TODO 3
+
         return Maybe.none();
     }
 

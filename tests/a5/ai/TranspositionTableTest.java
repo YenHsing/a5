@@ -8,6 +8,7 @@ import a5.logic.TicTacToe;
 import cms.util.maybe.NoMaybeValue;
 import org.junit.jupiter.api.Test;
 
+
 class TranspositionTableTest {
 
     @Test
