@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="test update">
+    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="finish Board.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/a5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a5/ai/TranspositionTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/ai/TranspositionTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a5/logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/a5/ai/TranspositionTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/a5/ai/TranspositionTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a5/logic/MNKGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/logic/MNKGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.TranspositionTableTest.getInfo">
+  <component name="RunManager" selected="JUnit.TranspositionTableTest">
     <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a5" />
       <extension name="coverage">
@@ -75,33 +73,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TranspositionTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="a5.logic.*" />
+          <option name="PATTERN" value="a5.ai.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="a5.logic" />
-      <option name="MAIN_CLASS_NAME" value="a5.logic.BoardTest" />
-      <option name="METHOD_NAME" value="testEquals" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="a5.ai" />
+      <option name="MAIN_CLASS_NAME" value="a5.ai.TranspositionTableTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TranspositionTableTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="a5.logic.*" />
+          <option name="PATTERN" value="a5.ai.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="a5.logic" />
-      <option name="MAIN_CLASS_NAME" value="a5.logic.BoardTest" />
-      <option name="METHOD_NAME" value="testHashCode" />
+      <option name="PACKAGE_NAME" value="a5.ai" />
+      <option name="MAIN_CLASS_NAME" value="a5.ai.TranspositionTableTest" />
+      <option name="METHOD_NAME" value="add" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -126,17 +123,17 @@
     <list>
       <item itemvalue="JUnit.BoardTest" />
       <item itemvalue="JUnit.BoardTest.get" />
-      <item itemvalue="JUnit.BoardTest.testEquals" />
-      <item itemvalue="JUnit.BoardTest.testHashCode" />
+      <item itemvalue="JUnit.TranspositionTableTest" />
+      <item itemvalue="JUnit.TranspositionTableTest.add" />
       <item itemvalue="JUnit.TranspositionTableTest.getInfo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TranspositionTableTest" />
         <item itemvalue="JUnit.TranspositionTableTest.getInfo" />
+        <item itemvalue="JUnit.TranspositionTableTest.add" />
         <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="JUnit.BoardTest.get" />
-        <item itemvalue="JUnit.BoardTest.testHashCode" />
-        <item itemvalue="JUnit.BoardTest.testEquals" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666820447864</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="finish Board.java">
+      <created>1666912003405</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666912003405</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +195,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test update" />
-    <option name="LAST_COMMIT_MESSAGE" value="test update" />
+    <MESSAGE value="finish Board.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish Board.java" />
   </component>
 </project>

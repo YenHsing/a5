@@ -276,8 +276,10 @@ public abstract class MNKGame {
      * the purpose of deciding future moves.
      */
     protected boolean stateEqual(MNKGame g) {
-        if (!board.equals(g.board)) return false;
-        if (countToWin != g.countToWin) return false;
+        if (!board.equals(g.board))
+            return false;
+        if (countToWin != g.countToWin)
+            return false;
         return true;
     }
 
