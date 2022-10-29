@@ -3,23 +3,27 @@ package a5.logic;
 import a5.util.PlayerRole;
 import a5.util.GameType;
 import a5.util.GameResult;
+import java.util.Objects;
+import java.util.Arrays;
 
 
 /**
- * A Pente game, where players take turns to place stones on board.
- * When consecutive two stones are surrounded by the opponent's stones on two ends,
- * these two stones are removed (captured).
- * A player wins by placing 5 consecutive stones or capturing stones 5 times.
+ * A Pente game, where players take turns to place stones on board. When consecutive two stones are
+ * surrounded by the opponent's stones on two ends, these two stones are removed (captured). A
+ * player wins by placing 5 consecutive stones or capturing stones 5 times.
  */
 public class Pente extends MNKGame {
 
+    private int first_player_captured_times;
+    private int second_player_captured_times;
 
     /**
      * Create an 8-by-8 Pente game.
      */
     public Pente() {
         super(8, 8, 5);
-
+        first_player_captured_times = 0;
+        second_player_captured_times = 0;
         // TODO 1
     }
 
@@ -34,6 +38,98 @@ public class Pente extends MNKGame {
     @Override
     public boolean makeMove(Position p) {
         // TODO 3
+        if (!board().validPos(p)) {
+            return false;
+        }
+        board().place(p, currentPlayer());
+        Position top_left = new Position(p.row() - 3, p.col() - 3);
+        Position top_right = new Position(p.row() - 3, p.col() + 3);
+        Position mid_left = new Position(p.row(), p.col() - 3);
+        Position mid_right = new Position(p.row(), p.col() + 3);
+        Position bottom_left = new Position(p.row() + 3, p.col() - 3);
+        Position bottom_right = new Position(p.row() + 3, p.col() + 3);
+
+        if (board().onBoard(top_left)
+                && board().get(new Position(p.row() - 1, p.col() - 1))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 2, p.col() - 2))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(top_left) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row() - 1, p.col() - 1));
+            board().erase(new Position(p.row() - 2, p.col() - 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(top_right)
+                && board().get(new Position(p.row() - 1, p.col() + 1))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 2, p.col() + 2))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(top_right) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row() - 1, p.col() + 1));
+            board().erase(new Position(p.row() - 2, p.col() + 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(mid_left)
+                && board().get(new Position(p.row(), p.col() - 1)) == currentPlayer().nextPlayer()
+                .boardValue()
+                && board().get(new Position(p.row(), p.col() - 2)) == currentPlayer().nextPlayer()
+                .boardValue()
+                && board().get(mid_left) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row(), p.col() - 1));
+            board().erase(new Position(p.row(), p.col() - 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(mid_right)
+                && board().get(new Position(p.row(), p.col() + 1)) == currentPlayer().nextPlayer()
+                .boardValue()
+                && board().get(new Position(p.row(), p.col() + 2)) == currentPlayer().nextPlayer()
+                .boardValue()
+                && board().get(mid_right) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row(), p.col() + 1));
+            board().erase(new Position(p.row(), p.col() + 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(bottom_left)
+                && board().get(new Position(p.row() + 1, p.col() - 1))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 2, p.col() - 2))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(bottom_left) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row() + 1, p.col() - 1));
+            board().erase(new Position(p.row() + 2, p.col() - 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(bottom_right)
+                && board().get(new Position(p.row() + 1, p.col() + 1))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 2, p.col() + 2))
+                == currentPlayer().nextPlayer().boardValue()
+                && board().get(bottom_right) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row() + 1, p.col() + 1));
+            board().erase(new Position(p.row() + 2, p.col() + 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        }
+        changePlayer();
+        advanceTurn();
         return true;
     }
 
@@ -52,13 +148,16 @@ public class Pente extends MNKGame {
      */
     public int capturedPairsNo(PlayerRole playerRole) {
         // TODO 4
-        return 0;
+        return playerRole.boardValue() == 1 ?
+                first_player_captured_times : second_player_captured_times;
     }
 
     @Override
     public boolean hasEnded() {
         // TODO 5
-        return super.hasEnded();
+        return super.hasEnded()
+                || first_player_captured_times >= 5
+                || second_player_captured_times >= 5;
     }
 
     @Override
@@ -89,12 +188,27 @@ public class Pente extends MNKGame {
      */
     protected boolean stateEqual(Pente p) {
         // TODO 6
-        return true;
+        if (this == p) {
+            return true;
+        }
+        if (p == null || getClass() != p.getClass()) {
+            return false;
+        }
+        Pente p_ = (Pente) p;
+        return p_.first_player_captured_times == p.first_player_captured_times
+                && p_.second_player_captured_times == p.second_player_captured_times
+                && super.stateEqual(p_);
     }
 
     @Override
     public int hashCode() {
         // TODO 7
-        return super.hashCode();
+        int prime = 31;
+        int catched_times_hashcode =
+                prime * (first_player_captured_times + second_player_captured_times);
+        return Arrays.hashCode(new int[]{
+                super.hashCode(),
+                catched_times_hashcode,
+        });
     }
 }
