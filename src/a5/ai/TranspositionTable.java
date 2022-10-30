@@ -96,6 +96,7 @@ public class TranspositionTable<GameState> {
     TranspositionTable() {
         size = 0;
         // TODO 2
+        buckets = new Node[5]; // initial space = 5
     }
 
     /** The number of entries in the transposition table. */
@@ -110,6 +111,12 @@ public class TranspositionTable<GameState> {
      */
     public Maybe<StateInfo> getInfo(GameState state) {
         // TODO 3
+
+        for(int i = 0; i < buckets.length; i++){
+            if(buckets[i] != null && buckets[i].state.equals(state)){
+                return Maybe.some(buckets[i]);
+            }
+        }
         return Maybe.none();
     }
 
@@ -121,6 +128,24 @@ public class TranspositionTable<GameState> {
      */
     public void add(GameState state, int depth, int value) {
         // TODO 4
+        //if load factor > 0.8, resize array to double size
+        if(size > buckets.length * 0.8) resize(buckets.length * 2);
+        // search in the array to find the existing entry
+        for(int i = 0; i < buckets.length; i++){
+            if(buckets[i]==null){
+                buckets[i] = new Node<>(state, depth, value, null);
+                return;
+            }
+            else if(state.equals(buckets[i])) {
+                // only overwrite if depth is larger than the existing node's depth
+                if (depth > buckets[i].depth) {
+                    Node<GameState> temp = buckets[i];
+                    buckets[i] = new Node<>(state, depth, value, temp.next);
+                    size++;
+                    return;
+                }
+            }
+        }
     }
 
     /**
@@ -129,10 +154,22 @@ public class TranspositionTable<GameState> {
      */
     private boolean grow(int target) {
         // TODO 5
+        //resize if load factor > 0.8
+        if(target > buckets.length){
+            resize(target);
+            return true;
+        }
         return false;
     }
 
     // You may want to write some additional helper methods.
+    private void resize(int target){
+        Node<GameState>[] new_buckets = new Node[target];
+        for(int i = 0; i < buckets.length; i++){
+            new_buckets[i] = buckets[i];
+        }
+        buckets = new_buckets;
+    }
 
 
     /**
