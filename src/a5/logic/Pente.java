@@ -42,8 +42,11 @@ public class Pente extends MNKGame {
             return false;
         }
         board().place(p, currentPlayer());
+
         Position top_left = new Position(p.row() - 3, p.col() - 3);
         Position top_right = new Position(p.row() - 3, p.col() + 3);
+        Position top = new Position(p.row() - 3, p.col());
+        Position bottom = new Position(p.row() + 3, p.col());
         Position mid_left = new Position(p.row(), p.col() - 3);
         Position mid_right = new Position(p.row(), p.col() + 3);
         Position bottom_left = new Position(p.row() + 3, p.col() - 3);
@@ -113,6 +116,28 @@ public class Pente extends MNKGame {
                 && board().get(bottom_right) == currentPlayer().boardValue()) {
             board().erase(new Position(p.row() + 1, p.col() + 1));
             board().erase(new Position(p.row() + 2, p.col() + 2));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(top)
+                && board().get(new Position(p.row() - 1, p.col())) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 2, p.col())) == currentPlayer().nextPlayer().boardValue()
+                && board().get(top) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row() - 1, p.col()));
+            board().erase(new Position(p.row() - 2, p.col()));
+            if (currentPlayer().boardValue() == 1) {
+                first_player_captured_times++;
+            } else {
+                second_player_captured_times++;
+            }
+        } else if (board().onBoard(bottom)
+                && board().get(new Position(p.row() + 1, p.col())) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 2, p.col())) == currentPlayer().nextPlayer().boardValue()
+                && board().get(bottom) == currentPlayer().boardValue()) {
+            board().erase(new Position(p.row() + 1, p.col()));
+            board().erase(new Position(p.row() + 2, p.col()));
             if (currentPlayer().boardValue() == 1) {
                 first_player_captured_times++;
             } else {

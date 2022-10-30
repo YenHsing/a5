@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="finish pente, code work, only need testing">
+    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="reformat Pente.java, write spec. for makeMove">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a5/logic/Pente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/logic/Pente.java" afterDir="false" />
     </list>
@@ -40,7 +40,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.a5.Main">
+  <component name="RunManager" selected="JUnit.PenteTest">
     <configuration name="a5.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a5.Main" />
       <module name="a5" />
@@ -127,8 +127,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.a5.Main" />
         <item itemvalue="JUnit.PenteTest" />
+        <item itemvalue="Application.a5.Main" />
         <item itemvalue="JUnit.PenteTest.hasEnded" />
         <item itemvalue="JUnit.PenteTest.stateEqual" />
         <item itemvalue="JUnit.PenteTest.makeMove" />
@@ -179,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667014485005</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="reformat Pente.java, write spec. for makeMove">
+      <created>1667106152401</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667106152402</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +217,7 @@
     <MESSAGE value="finish Board.java" />
     <MESSAGE value="update TranspositionTable.java(classinv not finish yet)" />
     <MESSAGE value="finish pente, code work, only need testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish pente, code work, only need testing" />
+    <MESSAGE value="reformat Pente.java, write spec. for makeMove" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformat Pente.java, write spec. for makeMove" />
   </component>
 </project>
