@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="update TranspositionTable.java(classinv not finish yet)">
+    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="finish pente, code work, only need testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a5/logic/Pente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/logic/Pente.java" afterDir="false" />
     </list>
@@ -172,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666923031430</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finish pente, code work, only need testing">
+      <created>1667014485005</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667014485005</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +209,7 @@
     <MESSAGE value="test update" />
     <MESSAGE value="finish Board.java" />
     <MESSAGE value="update TranspositionTable.java(classinv not finish yet)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update TranspositionTable.java(classinv not finish yet)" />
+    <MESSAGE value="finish pente, code work, only need testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish pente, code work, only need testing" />
   </component>
 </project>

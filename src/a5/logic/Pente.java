@@ -49,24 +49,23 @@ public class Pente extends MNKGame {
         Position bottom_left = new Position(p.row() + 3, p.col() - 3);
         Position bottom_right = new Position(p.row() + 3, p.col() + 3);
 
+        // if there's a stone on one of the previous position(top_left, top_right...) and the 2 stones between them are rivals' stones, then capture)
         if (board().onBoard(top_left)
-                && board().get(new Position(p.row() - 1, p.col() - 1))
-                == currentPlayer().nextPlayer().boardValue()
-                && board().get(new Position(p.row() - 2, p.col() - 2))
-                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 1, p.col() - 1)) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 2, p.col() - 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(top_left) == currentPlayer().boardValue()) {
+            //capture 2 stones
             board().erase(new Position(p.row() - 1, p.col() - 1));
             board().erase(new Position(p.row() - 2, p.col() - 2));
+            //if boardvalue = 1 => first player, else it is second player
             if (currentPlayer().boardValue() == 1) {
                 first_player_captured_times++;
             } else {
                 second_player_captured_times++;
             }
         } else if (board().onBoard(top_right)
-                && board().get(new Position(p.row() - 1, p.col() + 1))
-                == currentPlayer().nextPlayer().boardValue()
-                && board().get(new Position(p.row() - 2, p.col() + 2))
-                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 1, p.col() + 1)) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() - 2, p.col() + 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(top_right) == currentPlayer().boardValue()) {
             board().erase(new Position(p.row() - 1, p.col() + 1));
             board().erase(new Position(p.row() - 2, p.col() + 2));
@@ -76,10 +75,8 @@ public class Pente extends MNKGame {
                 second_player_captured_times++;
             }
         } else if (board().onBoard(mid_left)
-                && board().get(new Position(p.row(), p.col() - 1)) == currentPlayer().nextPlayer()
-                .boardValue()
-                && board().get(new Position(p.row(), p.col() - 2)) == currentPlayer().nextPlayer()
-                .boardValue()
+                && board().get(new Position(p.row(), p.col() - 1)) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row(), p.col() - 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(mid_left) == currentPlayer().boardValue()) {
             board().erase(new Position(p.row(), p.col() - 1));
             board().erase(new Position(p.row(), p.col() - 2));
@@ -89,10 +86,8 @@ public class Pente extends MNKGame {
                 second_player_captured_times++;
             }
         } else if (board().onBoard(mid_right)
-                && board().get(new Position(p.row(), p.col() + 1)) == currentPlayer().nextPlayer()
-                .boardValue()
-                && board().get(new Position(p.row(), p.col() + 2)) == currentPlayer().nextPlayer()
-                .boardValue()
+                && board().get(new Position(p.row(), p.col() + 1)) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row(), p.col() + 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(mid_right) == currentPlayer().boardValue()) {
             board().erase(new Position(p.row(), p.col() + 1));
             board().erase(new Position(p.row(), p.col() + 2));
@@ -102,10 +97,8 @@ public class Pente extends MNKGame {
                 second_player_captured_times++;
             }
         } else if (board().onBoard(bottom_left)
-                && board().get(new Position(p.row() + 1, p.col() - 1))
-                == currentPlayer().nextPlayer().boardValue()
-                && board().get(new Position(p.row() + 2, p.col() - 2))
-                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 1, p.col() - 1)) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 2, p.col() - 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(bottom_left) == currentPlayer().boardValue()) {
             board().erase(new Position(p.row() + 1, p.col() - 1));
             board().erase(new Position(p.row() + 2, p.col() - 2));
@@ -115,10 +108,8 @@ public class Pente extends MNKGame {
                 second_player_captured_times++;
             }
         } else if (board().onBoard(bottom_right)
-                && board().get(new Position(p.row() + 1, p.col() + 1))
-                == currentPlayer().nextPlayer().boardValue()
-                && board().get(new Position(p.row() + 2, p.col() + 2))
-                == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 1, p.col() + 1)) == currentPlayer().nextPlayer().boardValue()
+                && board().get(new Position(p.row() + 2, p.col() + 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(bottom_right) == currentPlayer().boardValue()) {
             board().erase(new Position(p.row() + 1, p.col() + 1));
             board().erase(new Position(p.row() + 2, p.col() + 2));
