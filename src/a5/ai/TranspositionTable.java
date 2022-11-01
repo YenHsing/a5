@@ -136,7 +136,7 @@ public class TranspositionTable<GameState> {
                 buckets[i] = new Node<>(state, depth, value, null);
                 return;
             }
-            else if(state.equals(buckets[i])) {
+            else if(state.equals(buckets[i].state)) {
                 // only overwrite if depth is larger than the existing node's depth
                 if (depth > buckets[i].depth) {
                     Node<GameState> temp = buckets[i];

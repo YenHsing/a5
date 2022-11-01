@@ -23,10 +23,11 @@ class TranspositionTableTest {
         TranspositionTable<TicTacToe> table = new TranspositionTable<>();
         TicTacToe state = new TicTacToe();
         table.add(state, 0, GameModel.WIN);
+        table.add(state, 2, GameModel.WIN);
 
         StateInfo info = table.getInfo(state).get();
         assertEquals(GameModel.WIN, info.value());
-        assertEquals(0, info.depth());
+        assertEquals(2, info.depth());
 
         // test case 2: look for a state not in the table
         TicTacToe state2 = state.applyMove(new Position(0, 0));
