@@ -20,6 +20,29 @@ class BoardTest {
         assertNotEquals(board1, board2);
 
         // TODO 1: write at least 3 test cases
+        board1.place(new Position(0, 0), PlayerRole.FIRST_PLAYER);
+        assertEquals(board1, board2);
+
+        Board board3 = new Board(2, 2);
+        Board board4 = new Board(2, 2);
+        assertEquals(board3, board4);
+        board3.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        assertNotEquals(board3, board4);
+        board4.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        assertEquals(board3, board4);
+        board4.place(new Position(0, 1), PlayerRole.FIRST_PLAYER);
+        assertNotEquals(board3, board4);
+
+        Board board5 = new Board(0, 0);
+        Board board6 = new Board(0, 0);
+        assertEquals(board5, board6);
+
+        Board board7 = new Board(3, 3);
+        Board board8 = new Board(2, 2);
+        assertNotEquals(board7, board8);
+        board7.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        board8.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        assertNotEquals(board7, board8);
     }
 
     @Test
@@ -36,6 +59,29 @@ class BoardTest {
         assertNotEquals(board1.hashCode(), board2.hashCode());
 
         // TODO 2: write at least 3 test cases
+        board1.place(new Position(0, 0), PlayerRole.FIRST_PLAYER);
+        assertEquals(board1.hashCode(), board2.hashCode());
+
+        Board board3 = new Board(2, 2);
+        Board board4 = new Board(2, 2);
+        assertEquals(board3.hashCode(), board4.hashCode());
+        board3.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        assertNotEquals(board3.hashCode(), board4.hashCode());
+        board4.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        assertEquals(board3.hashCode(), board4.hashCode());
+        board4.place(new Position(0, 1), PlayerRole.FIRST_PLAYER);
+        assertNotEquals(board3.hashCode(), board4.hashCode());
+
+        Board board5 = new Board(0, 0);
+        Board board6 = new Board(0, 0);
+        assertEquals(board5.hashCode(), board6.hashCode());
+
+        Board board7 = new Board(3, 3);
+        Board board8 = new Board(2, 2);
+        assertNotEquals(board7.hashCode(), board8.hashCode());
+        board7.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        board8.place(new Position(1, 0), PlayerRole.FIRST_PLAYER);
+        assertNotEquals(board7.hashCode(), board8.hashCode());
     }
 
     @Test
