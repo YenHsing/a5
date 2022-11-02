@@ -136,9 +136,11 @@ public class TranspositionTable<GameState> {
             size++;
         }
         else if(state.equals(buckets[hashcode].state)){
-            Node<GameState> temp = buckets[hashcode];
-            buckets[hashcode] = new Node<GameState>(state, depth, value, temp);
-            return;
+            if(depth > buckets[hashcode].depth){
+                Node<GameState> temp = buckets[hashcode];
+                buckets[hashcode] = new Node<GameState>(state, depth, value, temp);
+                return;
+            }
         }
     }
 
