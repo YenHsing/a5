@@ -15,6 +15,9 @@ class PenteTest {
         Pente game1 = new Pente();
         assertEquals(game1.board(),new Board(8,8));
         assertEquals(game1.countToWin(),5);
+        assertEquals(game1.first_time_getter(),0);
+        assertEquals(game1.second_time_getter(),0);
+    }
 
     }
 
