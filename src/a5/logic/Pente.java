@@ -33,6 +33,8 @@ public class Pente extends MNKGame {
     public Pente(Pente game) {
         super(game);
         // TODO 2
+        first_player_captured_times = game.first_player_captured_times;
+        second_player_captured_times = game.second_player_captured_times;
     }
 
     @Override
@@ -66,7 +68,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(top_right)
+        } if (board().onBoard(top_right)
                 && board().get(new Position(p.row() - 1, p.col() + 1)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row() - 2, p.col() + 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(top_right) == currentPlayer().boardValue()) {
@@ -77,7 +79,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(mid_left)
+        } if (board().onBoard(mid_left)
                 && board().get(new Position(p.row(), p.col() - 1)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row(), p.col() - 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(mid_left) == currentPlayer().boardValue()) {
@@ -88,7 +90,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(mid_right)
+        } if (board().onBoard(mid_right)
                 && board().get(new Position(p.row(), p.col() + 1)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row(), p.col() + 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(mid_right) == currentPlayer().boardValue()) {
@@ -99,7 +101,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(bottom_left)
+        } if (board().onBoard(bottom_left)
                 && board().get(new Position(p.row() + 1, p.col() - 1)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row() + 2, p.col() - 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(bottom_left) == currentPlayer().boardValue()) {
@@ -110,7 +112,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(bottom_right)
+        } if (board().onBoard(bottom_right)
                 && board().get(new Position(p.row() + 1, p.col() + 1)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row() + 2, p.col() + 2)) == currentPlayer().nextPlayer().boardValue()
                 && board().get(bottom_right) == currentPlayer().boardValue()) {
@@ -121,7 +123,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(top)
+        } if (board().onBoard(top)
                 && board().get(new Position(p.row() - 1, p.col())) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row() - 2, p.col())) == currentPlayer().nextPlayer().boardValue()
                 && board().get(top) == currentPlayer().boardValue()) {
@@ -132,7 +134,7 @@ public class Pente extends MNKGame {
             } else {
                 second_player_captured_times++;
             }
-        } else if (board().onBoard(bottom)
+        } if (board().onBoard(bottom)
                 && board().get(new Position(p.row() + 1, p.col())) == currentPlayer().nextPlayer().boardValue()
                 && board().get(new Position(p.row() + 2, p.col())) == currentPlayer().nextPlayer().boardValue()
                 && board().get(bottom) == currentPlayer().boardValue()) {
@@ -211,8 +213,8 @@ public class Pente extends MNKGame {
             return false;
         }
         Pente p_ = (Pente) p;
-        return p_.first_player_captured_times == p.first_player_captured_times
-                && p_.second_player_captured_times == p.second_player_captured_times
+        return p_.first_player_captured_times == this.first_player_captured_times
+                && p_.second_player_captured_times == this.second_player_captured_times
                 && super.stateEqual(p_);
     }
 
@@ -224,7 +226,8 @@ public class Pente extends MNKGame {
                 prime * (first_player_captured_times + second_player_captured_times);
         return Arrays.hashCode(new int[]{
                 super.hashCode(),
-                catched_times_hashcode,
+                first_player_captured_times , second_player_captured_times
         });
+
     }
 }

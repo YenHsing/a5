@@ -82,6 +82,8 @@ public class TranspositionTable<GameState> {
      */
     private Node<GameState>[] buckets;
 
+    private int capacity;
+
     // TODO 1: implement the classInv() method. You may also
     // strengthen the class invariant. The classInv()
     // method is likely to be expensive, so you may want to turn
@@ -94,9 +96,9 @@ public class TranspositionTable<GameState> {
     @SuppressWarnings("unchecked")
     /** Creates: a new, empty transposition table. */
     TranspositionTable() {
-        size = 0;
         // TODO 2
-        buckets = new Node[5]; // initial space = 5
+        capacity = 20;
+        buckets = new Node[capacity]; // initial space = 20
     }
 
     /** The number of entries in the transposition table. */
@@ -111,12 +113,10 @@ public class TranspositionTable<GameState> {
      */
     public Maybe<StateInfo> getInfo(GameState state) {
         // TODO 3
-
-        for(int i = 0; i < buckets.length; i++){
-            if(buckets[i] != null && buckets[i].state.equals(state)){
-                return Maybe.some(buckets[i]);
+        int idx = gethashcode(state,capacity);
+        if(buckets[idx] != null && buckets[idx].state.equals(state)){
+                return Maybe.some(buckets[idx]);
             }
-        }
         return Maybe.none();
     }
 
@@ -129,22 +129,16 @@ public class TranspositionTable<GameState> {
     public void add(GameState state, int depth, int value) {
         // TODO 4
         //if load factor > 0.8, resize array to double size
-        if(size > buckets.length * 0.8) resize(buckets.length * 2);
-        // search in the array to find the existing entry
-        for(int i = 0; i < buckets.length; i++){
-            if(buckets[i]==null){
-                buckets[i] = new Node<>(state, depth, value, null);
-                return;
-            }
-            else if(state.equals(buckets[i].state)) {
-                // only overwrite if depth is larger than the existing node's depth
-                if (depth > buckets[i].depth) {
-                    Node<GameState> temp = buckets[i];
-                    buckets[i] = new Node<>(state, depth, value, temp.next);
-                    size++;
-                    return;
-                }
-            }
+        int hashcode = gethashcode(state, capacity);
+        if(size > capacity * 0.8) resize(capacity * 2);
+        if(buckets[hashcode] == null){
+            buckets[hashcode] = new Node<GameState>(state, depth, value, null);
+            size++;
+        }
+        else if(state.equals(buckets[hashcode].state)){
+            Node<GameState> temp = buckets[hashcode];
+            buckets[hashcode] = new Node<GameState>(state, depth, value, temp);
+            return;
         }
     }
 
@@ -154,8 +148,7 @@ public class TranspositionTable<GameState> {
      */
     private boolean grow(int target) {
         // TODO 5
-        //resize if load factor > 0.8
-        if(target > buckets.length){
+        if(target > capacity){
             resize(target);
             return true;
         }
@@ -164,11 +157,21 @@ public class TranspositionTable<GameState> {
 
     // You may want to write some additional helper methods.
     private void resize(int target){
+        System.out.println("target"+target);
         Node<GameState>[] new_buckets = new Node[target];
         for(int i = 0; i < buckets.length; i++){
-            new_buckets[i] = buckets[i];
+            if(buckets[i]!= null){
+                int newhashcode = gethashcode(buckets[i].state, target);
+                new_buckets[newhashcode] = buckets[i];
+            }
         }
         buckets = new_buckets;
+        this.capacity = target;
+    }
+
+
+    private int gethashcode(GameState state, int size){
+        return Math.abs(state.hashCode()) % size;
     }
 
 
@@ -194,4 +197,24 @@ public class TranspositionTable<GameState> {
         double alpha = (double)n/m;
         return sum2/(N * alpha * (1 - 1.0/m + alpha));
     }
+
+//    public static final int EXACT_CUTOFF = 500;
+//    double estimateClustering(boolean exact) {
+//        int m = buckets.length, n = size;
+//        if (buckets.length < EXACT_CUTOFF) exact = true;
+//        final int N = exact ? m : EXACT_CUTOFF;
+//        double sum2 = 0;
+//        for (int i = 0; i < N; i++) {
+//            int j = exact ? i : Math.abs((i * 82728353) % buckets.length);
+//            int count = 0;
+//            Node<GameState> node = buckets[j];
+//            while (node != null) {
+//                count++;
+//                node = node.next;
+//            }
+//            sum2 += count*count;
+//        }
+//        double alpha = (double)n/m;
+//        return sum2/(N * alpha * (1 - 1.0/m + alpha));
+//    }
 }

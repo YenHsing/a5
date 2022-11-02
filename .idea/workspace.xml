@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="update Pente.java, add two more positions">
+    <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="fix TranspositionTable.java bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a5/ai/TranspositionTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/ai/TranspositionTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a5/logic/Pente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/logic/Pente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/a5/ai/TranspositionTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/a5/ai/TranspositionTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/a5/logic/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/a5/logic/BoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,15 +42,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TranspositionTableTest.add">
-    <configuration name="a5.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TranspositionTableTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a5.Main" />
       <module name="a5" />
-      <option name="PROGRAM_PARAMETERS" value="Pente human ai" />
+      <option name="PROGRAM_PARAMETERS" value="--showinfo Pente ai ai2" />
+      <option name="VM_PARAMETERS" value="-da:a5.ai.TranspositionTable" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="a5.*" />
@@ -59,7 +62,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PenteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a5" />
       <extension name="coverage">
         <pattern>
@@ -68,24 +71,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="a5.logic" />
-      <option name="MAIN_CLASS_NAME" value="a5.logic.PenteTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="a5.logic.BoardTest" />
+      <option name="METHOD_NAME" value="testHashCode" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PenteTest.hasEnded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TranspositionTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="a5.logic.*" />
+          <option name="PATTERN" value="a5.ai.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="a5.logic" />
-      <option name="MAIN_CLASS_NAME" value="a5.logic.PenteTest" />
-      <option name="METHOD_NAME" value="hasEnded" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="a5.ai" />
+      <option name="MAIN_CLASS_NAME" value="a5.ai.TranspositionTableTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,19 +126,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.a5.Main" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.BoardTest.testHashCode" />
+      <item itemvalue="JUnit.TranspositionTableTest" />
       <item itemvalue="JUnit.TranspositionTableTest.add" />
       <item itemvalue="JUnit.TranspositionTableTest.getInfo" />
-      <item itemvalue="JUnit.PenteTest" />
-      <item itemvalue="JUnit.PenteTest.hasEnded" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TranspositionTableTest.add" />
+        <item itemvalue="JUnit.TranspositionTableTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TranspositionTableTest.getInfo" />
-        <item itemvalue="Application.a5.Main" />
-        <item itemvalue="JUnit.PenteTest" />
-        <item itemvalue="JUnit.PenteTest.hasEnded" />
+        <item itemvalue="JUnit.BoardTest.testHashCode" />
+        <item itemvalue="JUnit.TranspositionTableTest.add" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667145739792</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix TranspositionTable.java bug">
+      <created>1667270748857</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667270748857</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +240,7 @@
     <MESSAGE value="finish pente, code work, only need testing" />
     <MESSAGE value="reformat Pente.java, write spec. for makeMove" />
     <MESSAGE value="update Pente.java, add two more positions" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Pente.java, add two more positions" />
+    <MESSAGE value="fix TranspositionTable.java bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix TranspositionTable.java bug" />
   </component>
 </project>
