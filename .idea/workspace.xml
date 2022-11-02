@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e5893dde-5c11-4272-8f49-f522ac4e86f2" name="Changes" comment="change TranspositionTable.java add() function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a5/ai/TranspositionTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/ai/TranspositionTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/a5/ai/TranspositionTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/a5/ai/TranspositionTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a5/logic/Pente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a5/logic/Pente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/a5/logic/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/a5/logic/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/a5/logic/PenteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/a5/logic/PenteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PenteTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a5.Main" />
       <module name="a5" />
@@ -60,7 +61,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a5" />
       <extension name="coverage">
         <pattern>
@@ -70,8 +71,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="a5.logic" />
       <option name="MAIN_CLASS_NAME" value="a5.logic.BoardTest" />
-      <option name="METHOD_NAME" value="testHashCode" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PenteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="a5.logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="a5.logic" />
+      <option name="MAIN_CLASS_NAME" value="a5.logic.PenteTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,36 +122,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TranspositionTableTest.getInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="a5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="a5.ai.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="a5.ai" />
-      <option name="MAIN_CLASS_NAME" value="a5.ai.TranspositionTableTest" />
-      <option name="METHOD_NAME" value="getInfo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.BoardTest.testHashCode" />
+      <item itemvalue="JUnit.BoardTest" />
+      <item itemvalue="JUnit.PenteTest" />
       <item itemvalue="JUnit.TranspositionTableTest" />
       <item itemvalue="JUnit.TranspositionTableTest.add" />
-      <item itemvalue="JUnit.TranspositionTableTest.getInfo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PenteTest" />
+        <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TranspositionTableTest.add" />
         <item itemvalue="JUnit.TranspositionTableTest" />
-        <item itemvalue="JUnit.TranspositionTableTest.getInfo" />
-        <item itemvalue="JUnit.BoardTest.testHashCode" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667426857780</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change TranspositionTable.java add() function">
+      <created>1667429694007</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667429694007</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

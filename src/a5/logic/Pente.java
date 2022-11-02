@@ -27,6 +27,14 @@ public class Pente extends MNKGame {
         // TODO 1
     }
 
+    public int first_time_getter(){
+        return first_player_captured_times;
+    }
+
+    public int second_time_getter(){
+        return second_player_captured_times;
+    }
+
     /**
      * Creates: a copy of the game state.
      */
