@@ -97,7 +97,8 @@ public class TranspositionTable<GameState> {
     /** Creates: a new, empty transposition table. */
     TranspositionTable() {
         // TODO 2
-        capacity = 20;
+        size = 0;
+        capacity = 500;
         buckets = new Node[capacity]; // initial space = 20
     }
 
@@ -114,9 +115,13 @@ public class TranspositionTable<GameState> {
     public Maybe<StateInfo> getInfo(GameState state) {
         // TODO 3
         int idx = gethashcode(state,capacity);
-        if(buckets[idx] != null && buckets[idx].state.equals(state)){
-                return Maybe.some(buckets[idx]);
+        if(buckets[idx] != null){
+            Node n = buckets[idx];
+            while(n!=null) {
+                if (n.state.equals(state))return Maybe.some(buckets[idx]);
+                n = n.next;
             }
+        }
         return Maybe.none();
     }
 
@@ -135,13 +140,22 @@ public class TranspositionTable<GameState> {
             buckets[hashcode] = new Node<GameState>(state, depth, value, null);
             size++;
         }
-        else if(state.equals(buckets[hashcode].state)){
-            if(depth > buckets[hashcode].depth){
-                Node<GameState> temp = buckets[hashcode];
-                buckets[hashcode] = new Node<GameState>(state, depth, value, temp);
-                return;
+        else {
+            Node n = buckets[hashcode];
+            Node head = n;
+            while(n!=null){
+                if(state.equals(n.state) && depth > n.depth){
+                    n.value = value;
+                    n.depth = depth;
+                    buckets[hashcode] = head;
+                    return;
+                }
+                n = n.next;
             }
+            n = new Node<GameState>(state, depth, value, null);
+            return;
         }
+
     }
 
     /**
@@ -159,7 +173,7 @@ public class TranspositionTable<GameState> {
 
     // You may want to write some additional helper methods.
     private void resize(int target){
-        System.out.println("target"+target);
+
         Node<GameState>[] new_buckets = new Node[target];
         for(int i = 0; i < buckets.length; i++){
             if(buckets[i]!= null){
