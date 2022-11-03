@@ -229,12 +229,12 @@ public class Pente extends MNKGame {
     @Override
     public int hashCode() {
         // TODO 7
-        int prime = 31;
+        int prime = 393241;
         int catched_times_hashcode =
                 prime * (first_player_captured_times + second_player_captured_times);
         return Arrays.hashCode(new int[]{
                 super.hashCode(),
-                first_player_captured_times , second_player_captured_times
+                catched_times_hashcode
         });
 
     }

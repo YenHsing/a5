@@ -91,6 +91,7 @@ public class Board {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) {
             return true;
         }
@@ -104,7 +105,7 @@ public class Board {
 
     @Override
     public int hashCode() {
-        int prime = 31;
+        int prime = 393241;
         int size_hashcode = prime * (colSize + rowSize);
         return size_hashcode + Arrays.hashCode(boardState);
     }

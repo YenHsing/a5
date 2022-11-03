@@ -98,7 +98,7 @@ public class TranspositionTable<GameState> {
     TranspositionTable() {
         // TODO 2
         size = 0;
-        capacity = 500;
+        capacity = 16;
         buckets = new Node[capacity]; // initial space = 20
     }
 
@@ -175,7 +175,7 @@ public class TranspositionTable<GameState> {
     private void resize(int target){
 
         Node<GameState>[] new_buckets = new Node[target];
-        for(int i = 0; i < buckets.length; i++){
+        for(int i = 0; i < capacity; i++){
             if(buckets[i]!= null){
                 int newhashcode = gethashcode(buckets[i].state, target);
                 new_buckets[newhashcode] = buckets[i];
